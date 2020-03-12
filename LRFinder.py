@@ -97,15 +97,20 @@ class LRFinder(object):
         Lines = file.readlines()
         loss_string = Lines[1].strip().split(',')
         loss_values = [float(vv) for vv in loss_string]
+        loss_grad = np.gradient(loss_values)
         lst_lr_string = Lines[3].strip().split(',')
         lst_lr_values = [float(vv) for vv in lst_lr_string]
         ## skip first 10 values and the last 5,
         ## focus on the interesting parts of the graph
-        plt.plot(lst_lr_values[10:-5], loss_values[10:-5])
+        plt.plot(lst_lr_values[10:-5], loss_values[10:-5], 'r')
+        plt.plot(lst_lr_values[10:-5], loss_grad[10:-5], 'g')
         plt.xlabel("learning rate")
         plt.ylabel("loss")
         plt.xscale("log")
         plt.grid()
         plt.savefig('loss_lr_rate.png')
         print('plot_smooth_curve exit')
+        ##To do 
+        ## Consider below URL for further implementation
+        ##https://forums.fast.ai/t/automated-learning-rate-suggester/44199 
 
