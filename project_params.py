@@ -6,7 +6,7 @@ if len(sys.argv) < 3:
     print('Error: Please pass the CFG File path')
     #exit(-1)
 
-cfg_file_name = 'params.cfg' #sys.argv[1]
+cfg_file_name = 'params_cyclic_lr.cfg' #sys.argv[1]
 print('### WARNING: Make sure name of the CFG file is correct ###')
 print('### Name of CFG File ----> ', cfg_file_name)
 time.sleep(2)
@@ -17,11 +17,12 @@ Project_Name = parse_exp_path_ob.get_project_name()
 Unstructred_Data_Path = parse_exp_path_ob.get_unstructured_data_path()
 Base_Path = parse_exp_path_ob.get_base_data_path()
 exp_checkpoint_path = parse_exp_path_ob.get_checkpoints_path()
+exp_cyclic_policy = parse_exp_path_ob.get_cyclic_lr_policy()
 
 ##create checkpoints
-restore_point = 1 #int(sys.argv[2])
-if restore_point==0:
-    img_name_helper.create_clean_dirs(exp_checkpoint_path)
+#restore_point = 1 #int(sys.argv[2])
+#if restore_point==0:
+img_name_helper.create_clean_dirs(exp_checkpoint_path)
 
 img_ext = parse_exp_path_ob.img_ext
 num_classes = parse_exp_path_ob.get_num_classes()

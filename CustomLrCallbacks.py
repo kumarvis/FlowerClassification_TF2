@@ -4,11 +4,12 @@ import logging
 
 class MyCustomCallback(tf.keras.callbacks.Callback):
 
-    def __init__(self, lr_step):
+    def __init__(self, base_lr=0.001, max_lr=0.006, step_size=2000., mode='triangular'):
         super().__init__(self)
-        self.lr_step = lr_step
-        self.list_lr = []
-        self.list_loss = []
+        self.base_lr = base_lr
+        self.max_lr = max_lr
+        self.step_size = step_size
+        self.mode = mode
         log_batch_end = logging.getLogger("batch-end-logger")
 
     def on_batch_end(self, batch, logs=None):

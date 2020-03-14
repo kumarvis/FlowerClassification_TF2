@@ -110,7 +110,4 @@ class LRFinder(object):
         plt.grid()
         plt.savefig('loss_lr_rate.png')
         print('plot_smooth_curve exit')
-        ##To do 
-        ## Consider below URL for further implementation
-        ##https://forums.fast.ai/t/automated-learning-rate-suggester/44199 
 

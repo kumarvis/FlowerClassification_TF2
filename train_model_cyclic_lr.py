@@ -11,7 +11,7 @@ from tf_rectified_adam import RectifiedAdam
 def show_batch(image_batch, label_batch, batch_sz):
     N = math.floor(math.sqrt(batch_sz))
     SqN = N * N
-    plt.figure(figsize=(10, 10))
+    plt.figure(figsize=(10,10))
     for n in range(SqN):
         ax = plt.subplot(N, N , n+1)
         plt.imshow(image_batch[n])
@@ -45,10 +45,11 @@ custom_model.compile(
     loss='sparse_categorical_crossentropy',
     metrics=[
         tf.keras.metrics.SparseCategoricalAccuracy(name='acc')
+        #tf.keras.metrics.SparseTopKCategoricalAccuracy(k=5, name='top5_acc')
     ])
 
-train_steps_per_epoch = math.ceil(no_train_images/ batch_sz)
-val_steps_per_epoch = math.ceil(no_validation_images/ batch_sz)
+train_steps_per_epoch = math.ceil(no_train_images / batch_sz)
+val_steps_per_epoch = math.ceil(no_validation_images / batch_sz)
 num_epochs = pp.exp_max_epochs
 
 ##Callbacks
