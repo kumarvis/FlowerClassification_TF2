@@ -19,7 +19,7 @@ def show_batch(image_batch, label_batch, batch_sz):
         plt.axis('off')
     plt.show()
 
-Base_Path = pp.Base_Path
+Base_Path = './input/FlowerClassification_Data/'
 batch_sz = pp.exp_batch_sz
 
 Train_Path = os.path.join(Base_Path, 'train')
