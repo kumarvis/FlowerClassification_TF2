@@ -1,2 +1,4 @@
 #folders
 .idea
+#files
+*.h5
